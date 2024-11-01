@@ -1,0 +1,81 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+    <div class="head">
+        <h1>Enter Actor Detels</h1>
+    </div>
+<div class="fm">
+    <div class="fmin">
+    <form [formGroup]="mydata" (submit)="sub(mydata)">
+        <div class="lab">
+            <label>Actor Name</label>
+        </div>
+        <div class="lab">
+        <input type="text" placeholder="Enter Actor Name" formControlName="name">
+        <p class="err" *ngIf="getName.errors?.required && indicator">Enter Name*</p>
+        </div>
+        <div class="lab">
+            <label>country Name</label>
+        </div>
+        <div class="lab">
+        <input type="text" placeholder="Enter country Name" formControlName="country">
+        <p class="err" *ngIf="getCountry.errors?.required && indicator">Enter Country Name*</p>
+        </div>
+        <div class="lab">
+            <label>City Name</label>
+        </div>
+        <div class="lab">
+        <input type="text" placeholder="Enter City Name" formControlName="city">
+        <p class="err" *ngIf="getCity.errors?.required && indicator">Enter City Name*</p>
+        </div>
+        <div class="lab">
+            <label>Roles</label>
+            <select class="form-select" aria-label="Default select example">
+                <option selected>Open this select menu</option>
+                <option *ngFor="let i Of ">One</option>
+               
+              </select>
+        </div>
+        <div class="lab">
+        <label> Date of Birth date</label>
+        </div>
+        <div class="lab">
+        <input type="date" formControlName="dob">
+        <p class="err" *ngIf="getDob.errors?.required && indicator">Enter Date of Birth*</p>
+        </div>
+        <div class="lab">
+           
+        </div>
+        <div class="lab">
+            <label for="formFileLg" class="form-label">Actor Photo</label>
+            <input class="form-control form-control-lg" accept="image/png" id="formFileLg" (change)="onFileSelected($event)" type="file">
+            <p class="err" *ngIf="getImage.errors?.required && indicator">Upload Images*</p>
+        
+            <div *ngIf="photo!=''">
+                <img [src]="'data:image/jpeg;base64,' + photo.imageData" height="100px">
+            </div>
+            <label>About</label>
+            <div>
+                <textarea rows="6" formControlName="about" placeholder="Enter About"></textarea>
+                <p class="err" *ngIf="getAbout.errors?.required && indicator">Enter About *</p>
+        
+            </div>
+            <div class="lab">
+ 
+                <button type="submit">Submit</button>
+             </div>
+        </div>
+       
+      
+    </form>
+    </div>
+    </div>
+   {{mydata.value|json}}
+</body>
+</html>

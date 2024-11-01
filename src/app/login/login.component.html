@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+    <div class="head">
+        <h1>Enter Movie Detels</h1>
+    </div>
+<div class="fm">
+    <div class="fmin">
+    <form>
+        <div class="lab">
+            <label>Movie Name</label>
+        </div>
+        <div class="lab">
+        <input type="text" placeholder="Enter User Name">
+        </div>
+        <div class="lab">
+        <label> Relese date</label>
+        </div>
+        <div class="lab">
+        <input type="date" >
+        </div>
+        <div class="lab">
+           
+        </div>
+        <div class="lab">
+            <label for="formFileLg" class="form-label">Poster</label>
+            <input class="form-control form-control-lg" accept="image/png" id="formFileLg" (change)="onFileSelected($event)" type="file">
+            <div *ngIf="data!=''">
+                <img [src]="'data:image/jpeg;base64,' + data.imageData" width="50px">
+            </div>
+        </div>
+        <div class="lab">
+        <label for="rating">Rating</label>
+    </div>
+
+        <div class="rating">
+          <label for="radio-1" aria-label="Rating 1"><input type="radio" name="rating" id="radio-1" class="sr-only"
+              value="1" formControlName="rating" /></label>
+          <label for="radio-2" aria-label="Rating 2"><input type="radio" name="rating" id="radio-2" class="sr-only"
+              value="2" formControlName="rating" /></label>
+          <label for="radio-3" aria-label="Rating 3"><input type="radio" name="rating" id="radio-3" class="sr-only"
+              value="3" formControlName="rating" /></label>
+          <label for="radio-4" aria-label="Rating 4"><input type="radio" name="rating" id="radio-4" class="sr-only"
+              value="4" formControlName="rating" /></label>
+          <label for="radio-5" aria-label="Rating 5"><input type="radio" name="rating" id="radio-5" class="sr-only"
+              value="5" formControlName="rating" /></label>
+        </div>
+     <div>
+        <button type="submit">Submit</button>
+     </div>
+      
+    </form>
+    </div>
+    </div>
+   
+</body>
+</html>

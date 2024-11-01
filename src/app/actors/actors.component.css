@@ -1,0 +1,22 @@
+*{
+    color: aliceblue;
+    background-color: rgb(53, 52, 52);
+    height: 420px;
+}
+div.scroll-container {
+    background-color: #333;
+    overflow: auto;
+    white-space: nowrap;
+    padding: 10px;
+  }
+  
+  div.scroll-container img {
+    padding: 10px;
+  }
+  img{
+    padding: 100%;
+    margin-right: 100px;
+    height: 400px;
+    width: 400px;
+    border-radius: 50%;
+  }
