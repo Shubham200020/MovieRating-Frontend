@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+<body>
+    <div class="head">
+        <h1>Enter USER Detail</h1>
+    </div>
+<div class="fm">
+    <div class="fmin text-dark">
+    <form [formGroup]="mydata" (submit)="sub(mydata)">
+        <div  >
+            <div class="pht">
+                <img src="https://cdn-icons-png.flaticon.com/512/8847/8847419.png" *ngIf="photo==''">
+                <img [src]="'data:image/jpeg;base64,' + photo.imageData" height="100px" *ngIf="photo!=''">
+                </div>
+          
+        </div>
+        <div class="lab">
+            <label for="formFileLg" class="form-label">Actor Photo</label>
+            <input class="form-control form-control-lg" accept="image/png, image/gif, image/jpeg" id="formFileLg" (change)="onFileSelected($event)" type="file">
+            <p class="err" *ngIf="getImage.errors?.required && indicator">Upload Images*</p>
+        </div>
+        <div class="lab">
+            <label>User Name</label>
+        </div>
+        <div class="lab">
+        <input type="text" placeholder="Enter User Name" formControlName="name">
+        <p class="err" *ngIf="getName.errors?.required && indicator">Name Required*</p>
+        </div>
+        <div class="lab">
+            <label>Email Name</label>
+        </div>
+        <div class="lab">
+        <input type="email" placeholder="Enter Email" formControlName="email">
+        <p class="err" *ngIf="getEmail.errors?.required && indicator">Email Required*</p>
+        <p class="err" *ngIf="getEmail.errors?.email && indicator">Enter Valid Email*</p>
+        </div>
+
+        <div class="lab">
+            <label> Date of Birth date</label>
+            </div>
+            <div class="lab">
+            <input type="date" formControlName="dob">
+            <p class="err" *ngIf="getDob.errors?.required && indicator">Enter Date of Birth*</p>
+            </div>
+
+        <div class="lab">
+            <label>password</label>
+        </div>
+        <div class="lab">
+        <input type="text" placeholder="Enter password" formControlName="password" (ngModelChange)="onChandeConfPass()">
+        <p class="err" *ngIf="getPassword.errors?.required && indicator">Enter password*</p>
+        </div>
+        <div class="lab">
+            <label>Conform password</label>
+        </div>
+        <div class="lab">
+        <input type="password" placeholder="Conform password" formControlName="conpass" (ngModelChange)="onChandeConfPass()">
+        <p class="err" *ngIf="getConPass.errors?.required && indicator">Conform password required*</p>
+        <p class="err" *ngIf="getConPass.errors?.incorrect">Password Not Match*</p>
+
+        </div>
+
+        <div class="lab">
+ 
+            <button type="submit" class="btn btn-info">Submit</button>
+         </div>
+     
+      
+    </form>
+    </div>
+    
+    </div>
+   
+ <br>
+
+</body>
+</html>

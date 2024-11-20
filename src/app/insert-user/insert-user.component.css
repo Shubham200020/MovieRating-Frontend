@@ -1,0 +1,102 @@
+body{
+  background: url('https://img.pikbest.com/wp/202342/geometric-forms-3d-podium-blue-background-in-abstract-form_9863035.jpg!sw800');
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+}
+.fm{
+  opacity: 0.6;
+color: black;
+    align-items: center;
+    text-align: center;
+    padding: 8px;
+ 
+  
+  }
+  .fl{
+    height: 100%;
+    width: 100%;
+  }
+  .pht{
+    padding: 0%;
+    margin-left: 45%;
+    border: 3px solid black;
+    height: 105px;
+    width: 105px;
+    border-radius: 50%;
+  }
+  .pht img{
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+  }
+  @media screen and (max-width:768px) {
+  .fmin{
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    background-color: #ffffff;
+    border: 1px solid black;
+    box-shadow: 8px 10px black;
+  }
+  
+  }
+  .err{
+    color: red;
+  }
+  @media screen and (min-width:768px){
+  .fmin{
+    
+    width: 60%;
+    margin-left: 20%;
+    height: 100%;
+    text-align: center;
+    background-color: #ffffff;
+    border: 1px solid black;
+    box-shadow: 8px 10px black;
+  }}
+  .lab label{
+    font-family: Arial, Helvetica, sans-serif;
+    color: gray;
+    font-style: oblique;
+   font-size: larger;
+  }
+  .lab input[type="text"]{
+    color: gray;
+    font-style: oblique;
+    width: 100%;
+    overflow: hidden;
+    font-size: larger;
+  }
+  
+  
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+  
+  .head{
+    text-align: center;
+    color: rgb(128, 91, 36);
+  }
+  
+  form div {
+    margin-bottom: 15px;
+  }
+  
+  
+  input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ffffff;
+    border-radius: 5px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+    color: #420E57;
+  }

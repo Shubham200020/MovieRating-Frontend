@@ -8,11 +8,23 @@
 </head>
 <body>
     <div class="head">
-        <h1>Enter Actor Detels</h1>
+        <h1>Enter Artist Detail</h1>
     </div>
 <div class="fm">
     <div class="fmin">
     <form [formGroup]="mydata" (submit)="sub(mydata)">
+        <div  >
+            <div class="pht">
+                <img src="https://cdn-icons-png.flaticon.com/512/8847/8847419.png" *ngIf="photo==''">
+                <img [src]="'data:image/jpeg;base64,' + photo.imageData" *ngIf="photo!=''">
+            </div>
+            <div class="lab">
+                <label for="formFileLg" class="form-label">Actor Photo</label>
+                <input class="form-control form-control-lg" accept="image/png, image/gif, image/jpeg" id="formFileLg" (change)="onFileSelected($event)" type="file">
+                <p class="err" *ngIf="getImage.errors?.required && indicator">Upload Images*</p>
+            
+            </div>
+        </div>
         <div class="lab">
             <label>Actor Name</label>
         </div>
@@ -36,11 +48,15 @@
         </div>
         <div class="lab">
             <label>Roles</label>
-            <select class="form-select" aria-label="Default select example">
-                <option selected>Open this select menu</option>
-                <option *ngFor="let i Of ">One</option>
+            <select class="form-select" aria-label="Default select example" formControlName="dta" (change)="onchangeSelect()">
+                <option selected>Open this select ROLE</option>
+                <option *ngFor="let i Of role">{{i}}</option>
                
               </select>
+              <span *ngFor="let i Of mydata.value.artRole">{{i}},</span>
+            
+              <p class="err" *ngIf="getRole.errors?.required && indicator">Enter Role *</p>
+        
         </div>
         <div class="lab">
         <label> Date of Birth date</label>
@@ -53,13 +69,8 @@
            
         </div>
         <div class="lab">
-            <label for="formFileLg" class="form-label">Actor Photo</label>
-            <input class="form-control form-control-lg" accept="image/png" id="formFileLg" (change)="onFileSelected($event)" type="file">
-            <p class="err" *ngIf="getImage.errors?.required && indicator">Upload Images*</p>
-        
-            <div *ngIf="photo!=''">
-                <img [src]="'data:image/jpeg;base64,' + photo.imageData" height="100px">
-            </div>
+         
+            
             <label>About</label>
             <div>
                 <textarea rows="6" formControlName="about" placeholder="Enter About"></textarea>
@@ -68,14 +79,16 @@
             </div>
             <div class="lab">
  
-                <button type="submit">Submit</button>
+                <button type="submit" class="btn btn-info">Submit</button>
              </div>
         </div>
-       
+     
       
     </form>
     </div>
     </div>
-   {{mydata.value|json}}
+   
+ <br>
+
 </body>
 </html>

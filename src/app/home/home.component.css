@@ -1,9 +1,18 @@
 .img-scroll{
      background-color: black;
 }
-.img-scroll image{
-    height: 22px;
+
+.mv{
+    background-color: rgb(35, 32, 32);
 }
 .actor{
     margin-top: 2%;
+}
+.login{
+    position: sticky;
+	top: 0%;
+	right: 0%;
+}
+.par{
+position: relative;
 }

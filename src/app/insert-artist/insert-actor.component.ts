@@ -3,6 +3,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NavbarComponent } from "../navbar/navbar.component";
 import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { CookieService } from 'ngx-cookie-service';
 
 @Component({
   selector: 'app-insert-actor',
@@ -13,31 +14,51 @@ import { FormControl, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 })
 export class InsertArtistComponent implements OnInit{
   indicator:boolean=false
+  selRole:any[]=[]
   photo:any=[]
   role:any=[]
+  cookieData:string=""
   featuredImage!: File;
-  constructor(private http:HttpClient)
+  constructor(private http:HttpClient,private cookieSer:CookieService)
   {
    
   }
   ngOnInit(): void {
-    
+  
+    this.cookieData=this.cookieSer.get("inf")
+  this.getData()
   }
   getData(){
     this.http.get("http://localhost:8080/art/get-role").subscribe(
       (data)=>{
-        alert("upload")
+        
         this.role=data;
        
       },
       (error)=>{
+
         console.log("error"+error)
       }
     )  
   }
   sub(fm:FormGroup){
-    this.indicator=true
+    this.indicator=true;
+     if(fm.valid){
+      this.http.post("http://localhost:8080/art/",fm.value).subscribe(
+        (data)=>{
+          
+         alert("Submit data")
 
+        },
+        (error)=>{
+          alert("Somethin went Wrong")
+          console.log(fm.value)
+          console.log("error"+error)
+        }
+      )  
+   
+    }
+  
   }
 
   onFileSelected(event: any): void {
@@ -61,9 +82,20 @@ export class InsertArtistComponent implements OnInit{
     dob:new FormControl('',[Validators.required]),
     country:new FormControl('',[Validators.required]),
     city:new FormControl('',[Validators.required]),
-    about:new FormControl('',[Validators.maxLength(1000),Validators.required]),
-    artRole:new FormControl('',[Validators.required])
+    about:new FormControl('',[Validators.required]),
+    dta:new FormControl([],[Validators.required]),
+    artRole:new FormControl([],[Validators.required])
   });
+  onchangeSelect(){
+  
+    this.selRole.push(this.mydata.get("dta")?.value);
+    
+    this.getRole.setValue(this.selRole)
+  }
+  get getRole():any{
+    return this.mydata.get("artRole")
+
+  }
   get getName():any{
     return this.mydata.get("name")
   }

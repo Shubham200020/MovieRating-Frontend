@@ -1,7 +1,7 @@
 .imgs img{
   height: 220px;
 }
-*{
+body{
   color: aliceblue;
   background-color: rgb(35, 32, 32);
 }

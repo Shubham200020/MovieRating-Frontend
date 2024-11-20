@@ -846,3 +846,16 @@ button {
 		box-shadow: 0 0 0 2px var(--c-gray-800), 0 0 0 4px var(--c-gray-300);
 	}
 }
+.nv{
+	position: sticky;
+	top: 0%;
+	
+}
+.btnrz{
+	position: sticky;
+	top: 0%;
+	right: 0%;
+}
+.nv{
+	color: #bdbbb7;
+}

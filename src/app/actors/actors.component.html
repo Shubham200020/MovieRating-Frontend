@@ -1,12 +1,10 @@
 
 <div class="scroll-container">
-    <img src="https://content.jdmagicbox.com/v2/comp/chennai/w1/044pxx44.xx44.131011162201.i7w1/catalogue/rajinikanth-gopalapuram-chennai-actors-e9jhpcayhs-250.jpg" alt="Cinque Terre" >
-   
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQH0KBCLb6l_tmVRGdTwzFU0KEvTjxLhYL3Jg&s" alt="Forest" >
-    <img src="https://www.mytalk1071.com/wp-content/uploads/2024/03/CMGc14eb813-71d9-4f42-9dce-1be93b5eb397.jpg" alt="Northern Lights">
-    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjhTtTUu00M-rdQwLgt0rovtbmWdiix_ktRw&s" alt="Mountains" >
-    <img src="https://images.javatpoint.com/top10-technologies/images/top-10-hollywood-actors6.png" alt="Mountains" >
-    <img src="https://m.media-amazon.com/images/M/MV5BYjU5NGViZTMtM2QwMy00MmFkLTg5MjAtYzdhZWJlNDM3YjA0XkEyXkFqcGc@._V1_.jpg" alt="Mountains" >
+  <span *ngFor="let i Of data">
+    <img  alt="Astrologer Image" class="astrologer-image" [src]="'data:image/jpeg;base64,'+i.images.imageData" (click)="ClickPractice(i.id)"/>
+         
 
+  </span>
+ 
   </div>
   
