@@ -1,1 +1,42 @@
-<p>show-movies works!</p>
+<nav class="navbar bg-light">
+    <div class="container-fluid">
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
+    </div>
+    
+   
+      <div class="btn-group">
+        <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-filter"></span>Filter</button>
+        <button type="button" class="btn btn-default dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span class="sr-only"><span class="glyphicon glyphicon-filter"></span></span>
+        </button>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" *ngFor="let i Of role" (click)="grtByFilter(i)">{{i}}</a>
+          <div class="dropdown-divider"></div>
+          <a class="dropdown-item" (click)="getllData()">All Data</a>
+        </div>
+      </div>
+  </nav>
+  <div>
+   
+    <div class="astrologer-list">
+        <div class="astrologer" *ngFor="let i Of data">
+          <img  alt="Astrologer Image" class="astrologer-image" [src]="'data:image/jpeg;base64,'+i.poster.imageData" />
+          <div class="astrologer-details">
+            <h3>{{i.name}}</h3>
+            <p>Authority:{{i.authrity}}</p>
+            <p>Relese date:{{i.releseDate|date}}</p>
+            <p>Year of relese:<span >{{getDate(i.releseDate)}}</span></p>
+            <button class="btn btn-danger" *ngIf="i.authrity!='Deny'" (click)="updateData(i.id,'Deny')">Deny</button>
+            <button class="btn btn-success" *ngIf="i.authrity!='Accept'" (click)="updateData(i.id,'Accept')">Accept</button>
+          </div>
+          <div class="astrologer-actions cl">
+            <button class="btn btn-primary" >Edit</button>
+            <button class="btn-delete btn btn-danger" (click)="deleteData(i)">Delete</button>
+          </div>
+        </div>
+      </div>
+
+  </div>

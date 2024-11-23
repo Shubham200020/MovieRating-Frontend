@@ -10,17 +10,19 @@ import { ShowUserComponent } from "../show-user/show-user.component";
 import { ShowProfileComponent } from "../show-profile/show-profile.component";
 import { Router } from '@angular/router';
 import { fakeAsync } from '@angular/core/testing';
+import { ShowMoviesComponent } from "../show-movies/show-movies.component";
 
 
 @Component({
   selector: 'app-dashboard',
   standalone: true,
-  imports: [ActorsComponent, InsertArtistComponent, InsertMovieComponent, CommonModule, ShowArtistComponent, InsertUserComponent, ShowUserComponent, ShowProfileComponent],
+  imports: [ActorsComponent, InsertArtistComponent, InsertMovieComponent, CommonModule, ShowArtistComponent, InsertUserComponent, ShowUserComponent, ShowProfileComponent, ShowMoviesComponent],
   providers: [CookieService],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.css'
 })
 export class DashboardComponent implements OnInit{
+
   per:string=""
   navBar:boolean=true
   name=""
@@ -48,6 +50,10 @@ export class DashboardComponent implements OnInit{
   login(){
     this.router.navigate(['/login']);
   }
+  showMovie() {
+    this.cookies.set("per","showMovie",{ expires: 7, path: '/' });
+    this.per=this.cookies.get("per");
+    }
   showProfile(){
     
     this.cookies.set("per","showProfile",{ expires: 7, path: '/' });
