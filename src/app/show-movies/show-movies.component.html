@@ -31,9 +31,12 @@
             <p>Year of relese:<span >{{getDate(i.releseDate)}}</span></p>
             <button class="btn btn-danger" *ngIf="i.authrity!='Deny'" (click)="updateData(i.id,'Deny')">Deny</button>
             <button class="btn btn-success" *ngIf="i.authrity!='Accept'" (click)="updateData(i.id,'Accept')">Accept</button>
+            <button class="btn btn-primary bg-secondary" (click)="updateHome(i.id,'Accept')" *ngIf="i.onHomeShow=='Deny' || i.onHomeShow==null">Show on Home</button>
+            <button class="btn btn-primary bg-secondary" (click)="updateHome(i.id,'Deny')" *ngIf="i.onHomeShow=='Accept' ">Don't Show on Home</button>
           </div>
           <div class="astrologer-actions cl">
             <button class="btn btn-primary" >Edit</button>
+          
             <button class="btn-delete btn btn-danger" (click)="deleteData(i)">Delete</button>
           </div>
         </div>

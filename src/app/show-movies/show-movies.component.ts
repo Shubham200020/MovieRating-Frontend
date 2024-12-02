@@ -15,6 +15,18 @@ export class ShowMoviesComponent implements OnInit{
   data:any=[]
   constructor(private http:HttpClient){
   }
+  updateHome(id:any,dta:any){
+    this.http.get("http://localhost:8080/movie/authhome/"+id+"/"+dta).subscribe(
+      (data)=>{
+        alert("Update");
+        this.getllData();
+      },
+      (error)=>{
+
+        console.log("error"+error)
+      }
+    )  
+  }
   updateData(id:any,dta:any){
     this.http.get("http://localhost:8080/movie/auth/"+id+"/"+dta).subscribe(
       (data)=>{

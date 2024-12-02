@@ -11,6 +11,7 @@ import { InsertUserComponent } from './insert-user/insert-user.component';
 import { InsertUserDemoComponent } from './insert-user-demo/insert-user-demo.component';
 import { NotFountComponent } from './not-fount/not-fount.component';
 import { RatemovieComponent } from './ratemovie/ratemovie.component';
+import { AddCastComponent } from './add-cast/add-cast.component';
 
 
 export const routes: Routes = [
@@ -20,5 +21,6 @@ export const routes: Routes = [
     {path:"usradd",component:InsertUserComponent},
     {path:"artisrblog",component:ShowActorProfileComponent},
     {path:"rating",component:RatemovieComponent},
+    {path:"cast",component:AddCastComponent},
     {path:"**",component:NotFountComponent}
 ];

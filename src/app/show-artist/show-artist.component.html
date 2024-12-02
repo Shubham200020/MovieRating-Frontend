@@ -26,18 +26,11 @@
           <img  alt="Astrologer Image" class="astrologer-image" [src]="'data:image/jpeg;base64,'+i.images.imageData" />
           <div class="astrologer-details">
             <h3>{{i.name}}</h3>
-            <p>Role: <span *ngFor="let j Of i.artRole">{{j}}. </span> </p>
+            
             <p>Age:<span >{{getDate(i.dob)}}</span></p>
-            <p>Rating: 
-              <span class="star-rating">
-                <span *ngFor="let star of [1, 2, 3, 4, 5]; let i = index" 
-                       
-                      [class.filled]="">
-                  &#9733;
-                </span>
-              </span>
+            <p>Role: <span *ngFor="let j Of i.artRole">{{j}}. </span> </p>
              
-            </p>
+          
           </div>
           <div class="astrologer-actions cl">
             <button class="btn btn-primary" >Edit</button>

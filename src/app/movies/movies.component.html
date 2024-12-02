@@ -22,12 +22,12 @@
       <div class="col-sm-3" *ngFor="let i Of data">
         
         <div class="imgs">
-          <img src="{{i.link}}" alt="{{i.seriseTitle}}">
+          <img [src]="'data:image/jpeg;base64,'+i.poster.imageData" alt="{{i.seriseTitle}}">
         </div>
       
       
         <div class="imgs">
-          <p>{{i.seriseTitle}}</p>
+          <p>{{i.name}}</p>
           <div>
             {{i.imdbRating}}
             <span >

@@ -18,7 +18,7 @@ export class MoviesComponent {
     this.getData()
   }
   getData(){
-    this.http.get("http://localhost:8080/imdb/").subscribe(
+    this.http.get("http://localhost:8080/movie/").subscribe(
       (data)=>{
         this.data=data
       },

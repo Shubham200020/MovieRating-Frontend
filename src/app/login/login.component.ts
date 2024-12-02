@@ -51,6 +51,7 @@ export class LoginComponent {
    
   
       this.data=data
+
       if(this.data!=null){
         alert("Login")
         this.cookie.set("email",this.getEmail.value,{ expires: 7, path: '/' });
@@ -59,7 +60,7 @@ export class LoginComponent {
         this.router.navigate(['/dashbord']);
       }
       else{
-        alert("Somethigs went Wrong")
+        alert("Email or Passord something is wrong")
       }
       
     },

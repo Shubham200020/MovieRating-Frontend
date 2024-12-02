@@ -1,3 +1,4 @@
+
 @import url("https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 
 :root {
@@ -54,7 +55,11 @@ textarea {
 a {
 	color: inherit;
 }
-
+@media screen and (min-width: 800px) {
+	.varNav{
+		display: none;
+	}
+  }
 .responsive-wrapper {
 	width: 90%;
 	max-width: 1600px;
@@ -148,8 +153,7 @@ a {
 	}
 }
 
-.app-body-sidebar {
-}
+
 
 .footer {
 	margin-top: auto;
@@ -653,7 +657,7 @@ a {
 }
 
 .transfer-logo {
-	background-color: var(--c-gray-200);
+	background-color: var(--c-gray-201);
 	border-radius: 4px;
 	width: 42px;
 	height: 42px;
@@ -852,10 +856,17 @@ button {
 	
 }
 .btnrz{
+	padding: 0%;
+	margin: 0%;
+	height: 30px;
+	width: 30px;
 	position: sticky;
 	top: 0%;
 	right: 0%;
 }
 .nv{
 	color: #bdbbb7;
+}
+.navbar{
+	padding: 0%;
 }
