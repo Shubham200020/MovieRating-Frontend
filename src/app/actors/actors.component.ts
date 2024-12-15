@@ -21,7 +21,7 @@ export class ActorsComponent implements OnInit{
   }
 
   getActorData(){
-    this.http.get("http://localhost:8080/art/actor").subscribe(
+    this.http.get("http://localhost:8080/art/acc/art").subscribe(
       (data)=>{
         this.data=data
       },

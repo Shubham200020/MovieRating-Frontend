@@ -65,12 +65,25 @@
         <input type="date" formControlName="dob">
         <p class="err" *ngIf="getDob.errors?.required && indicator">Enter Date of Birth*</p>
         </div>
+        <div class="lab" *ngIf="dide">
+            <label> Date of Died</label>
+            </div>
+            <div class="lab" *ngIf="dide">
+                
+            <input type="date" formControlName="dod">
+            <p class="err" *ngIf="getDob.errors?.required && indicator">Enter Date of Birth*</p>
+            </div>
+            <div class="lab">
+                <label>Died</label>
+                </div>
+                <div class="lab">
+                    
+                <input type="checkbox" [(ngModel)]="isChecked"  (change)="checkBox()">
+                <p class="err" *ngIf="getDob.errors?.required && indicator">Enter Date of Birth*</p>
+                </div>
+       
         <div class="lab">
-           
-        </div>
-        <div class="lab">
-         
-            
+       
             <label>About</label>
             <div>
                 <textarea rows="6" formControlName="about" placeholder="Enter About"></textarea>
@@ -81,9 +94,8 @@
  
                 <button type="submit" class="btn btn-info">Submit</button>
              </div>
-        </div>
-     
-      
+        </div>   
+            
     </form>
     </div>
     </div>

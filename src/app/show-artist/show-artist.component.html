@@ -22,15 +22,23 @@
   <div>
    
     <div class="astrologer-list">
-        <div class="astrologer" *ngFor="let i Of data" (click)="ClickPractice(i.id)">
+        <div class="astrologer" *ngFor="let i Of data" >
           <img  alt="Astrologer Image" class="astrologer-image" [src]="'data:image/jpeg;base64,'+i.images.imageData" />
           <div class="astrologer-details">
             <h3>{{i.name}}</h3>
             
-            <p>Age:<span >{{getDate(i.dob)}}</span></p>
+            <p *ngIf="i.dod==null">Age:<span >{{getDate(i.dob)}}</span>
+              <span class="position-absolute top-0 start-100 translate-middle p-2 bg-success border border-light rounded-circle">
+              </span>
+            </p>
+            <p *ngIf="i.dod!=null">Age:<span >{{getDethDate(i.dob,i.dod)}}</span>
+              <span class="position-absolute top-0 start-100 translate-middle p-2 bg-danger border border-light rounded-circle">
+             </span></p>
             <p>Role: <span *ngFor="let j Of i.artRole">{{j}}. </span> </p>
              
-          
+            <button class="btn btn-danger" *ngIf="i.ohHomeShow!='Deny'" (click)="updateData(i.id,'Deny')">Deny</button>
+            <button class="btn btn-success" *ngIf="i.ohHomeShow!='Accept'" (click)="updateData(i.id,'Accept')">Accept</button>
+           
           </div>
           <div class="astrologer-actions cl">
             <button class="btn btn-primary" >Edit</button>

@@ -17,6 +17,21 @@ export class ShowArtistComponent implements OnInit {
   constructor(private http:HttpClient,private cookie:CookieService,private route:Router){
 
   }
+  getDethDate(date:any,deth:any){
+
+    const dob= new Date(date)
+    const dod= new Date(deth)
+    
+    let age = dod.getFullYear() - dob.getFullYear();
+    const monthDiff = dod.getMonth() - dob.getMonth();
+    const dayDiff = dod.getDate() - dob.getDate();
+  
+    // Adjust age if the current date has not yet reached the birth month or day
+    if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) {
+      age--;
+    }
+     return age
+  }
   getDate(date:any){
     const todatDate=new Date();
     const dob= new Date(date)
@@ -30,6 +45,19 @@ export class ShowArtistComponent implements OnInit {
     }
      return age
   }
+  updateData(id:any,dta:any){
+    this.http.get("http://localhost:8080/art/auth-by-id/"+id).subscribe(
+      (data)=>{
+        alert("Update");
+        this.getllData();
+      },
+      (error)=>{
+
+        console.log("error"+error)
+      }
+    )  
+  }
+ 
   ngOnInit(): void {
  this.getData()
     this.getllData()

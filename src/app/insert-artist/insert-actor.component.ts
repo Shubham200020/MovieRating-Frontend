@@ -15,18 +15,26 @@ import { CookieService } from 'ngx-cookie-service';
 export class InsertArtistComponent implements OnInit{
   indicator:boolean=false
   selRole:any[]=[]
+  dide:boolean=false;
   photo:any=[]
+  isChecked:any=""
   role:any=[]
   cookieData:string=""
   featuredImage!: File;
-  constructor(private http:HttpClient,private cookieSer:CookieService)
-  {
+  constructor(private http:HttpClient,private cookieSer:CookieService){
    
   }
+  
   ngOnInit(): void {
   
     this.cookieData=this.cookieSer.get("inf")
   this.getData()
+  }
+  checkBox(){
+    if(this.dide==false)
+    this.dide=true;
+    else
+    this.dide=false
   }
   getData(){
     this.http.get("http://localhost:8080/art/get-role").subscribe(
@@ -80,6 +88,7 @@ export class InsertArtistComponent implements OnInit{
     name:new FormControl('',[Validators.required]),
     images:new FormControl('',[Validators.required]),
     dob:new FormControl('',[Validators.required]),
+    dod:new FormControl(''),
     country:new FormControl('',[Validators.required]),
     city:new FormControl('',[Validators.required]),
     about:new FormControl('',[Validators.required]),
